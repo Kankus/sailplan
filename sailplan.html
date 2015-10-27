@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Sailplan</title>
+		<script src="qunit.js"></script>
+		<LINK href="qunit.css" rel="stylesheet" type="text/css">
+			
+<script language="javascript">
+	<!--
+  
+	function pt(x,y)
+	{
+	  this.x=x;
+		this.y=y;
+		this.r=Math.sqrt(x*x+y*y);
+		this.toString = function toString() {
+		  return "("+this.x+","+this.y+")";
+		};
+	}
+	
+	function triangle(ptArray)
+	{
+	  var pts = new Array(3);
+		for (i=0; i<3; i++) pts [i]= ptArray[i];
+		
+		this.centroid = function centroid() {
+		  return new pt((pts[0].x+pts[1].x+pts[2].x)/3, (pts[0].y+pts[1].y+pts[2].y)/3);
+		};
+		
+		this.toString = function toString() {
+		  return pts[0].toString() + pts[1].toString() + pts[2].toString();
+		};
+	}
+	
+	 QUnit.test("point tests", function( assert ) {
+	   var testPt = new pt(3,4);
+     assert.equal(testPt.x,3);
+   };
+    
+/*
+ var para = document.getElementById("para");
+ //para = document.createElement("p");
+ //para.innerText = para.innerText + " (Hello World)";
+
+ var point = new pt(3,4);
+ para.innerText = para.innerText + point.toString() + point.r;
+ point = new pt(5,2);
+ para.innerText = para.innerText + point.toString() + point.r;
+ para.innerText = para.innerText + "a";
+
+ var tri = new triangle([new pt(2,1),new pt(3,4),new pt(5,2)]);
+ para.innerText = para.innerText + " " + tri.toString()+tri.centroid().r;
+ para.innerText = para.innerText + "b";
+*/
+	
+	//-->
+	
+</script>
+			
+	</head>
+
+	<body>
+		<div id="qunit"></div>
+		
+		<p id="para">
+		</p>
+
+
+	</body>
+</html>
