@@ -8,13 +8,68 @@
 		<script src="sailplan.js"></script>
 		<script src="sailplantests.js"></script>
 		<LINK href="qunit.css" rel="stylesheet" type="text/css">
+		<LINK href="sailplan.css" rel="stylesheet" type="text/css">
 	</head>
 
 	<body>
 		
 		<div id="qunit"></div>
 		
-		<p>Body here</p>
-
+		<div id="form" class="form">
+			<h1>Bermuda Mainsail</h1>
+			<p>
+				<label for="tackx">Tack (x,y) : (&nbsp;</label>
+				<input type="text" id="tackx" size=4 /> ,
+				<input type="text" id="tacky" size=4 /> )</p>
+			<p>
+				<label for="clewx">Clew (x,y) : (&nbsp;</label>
+				<input type="text" id="clewx" size=4 /> ,
+				<input type="text" id="clewy" size=4 /> )</p>
+			<p>
+				<label for="headx">Head (x,y) : (&nbsp;</label>
+				<input type="text" id="headx" size=4 /> ,
+				<input type="text" id="heady" size=4 /> )</p>
+			<p>
+				<button onclick="calculate()">Calculate</button></p>
+		</div>
+		
+		<script language="javascript">
+			
+			// viewmodel
+			function formView()
+			{
+				this.getTackx = function() { return document.getElementById("tackx").value; };
+				this.getTacky = function() { return document.getElementById("tacky").value; };
+				this.getClewx = function() { return document.getElementById("clewx").value; };
+				this.getClewy = function() { return document.getElementById("clewy").value; };
+				this.getHeadx = function() { return document.getElementById("headx").value; };
+				this.getHeady = function() { return document.getElementById("heady").value; };
+				
+				this.setTackx = function(tackx) { document.getElementById("tackx").value = tackx; };
+				this.setTacky = function(tacky) { document.getElementById("tacky").value = tacky; };
+				this.setClewx = function(clewx) { document.getElementById("clewx").value = clewx; };
+				this.setClewy = function(clewy) { document.getElementById("clewy").value = clewy; };
+				this.setHeadx = function(headx) { document.getElementById("headx").value = headx; };
+				this.setHeady = function(heady) { document.getElementById("heady").value = heady; };
+			}
+			
+			// controller methods
+			function calculate()
+			{
+				var form = new formView();
+				var mainsail = new polygon([new point(form.getTackx(),form.getTacky()), new point(form.getClewx(),form.getClewy()), new point(form.getHeadx(),form.getHeady())]);
+				alert (mainsail.toString()+" "+mainsail.area()+" "+ mainsail.centroid().toString());
+			}
+			
+			
+		</script>
+		
+		<h1><br/>To do: </h1>
+		<p>text based form - single sail<br/>Fix centroid bug</p>
+		<p>utilise jquery</p>
+		<p>utilise angular</p>
+		<p>json service (integration test?)</p>
+		<p>GUI - single sail</p>
+		
 	</body>
 </html>

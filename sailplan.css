@@ -1,0 +1,22 @@
+@charset 'UTF-8';
+
+.form {
+	font-size: 20pt;
+}
+
+.form label { 
+	clear: both; 
+  display: block; 
+  float: left; 
+	text-align: right;
+  width: 6em; 
+}
+
+.form input {
+	font-size: 16pt;
+	width: 2.5em;
+}
+
+.form button {
+	font-size: 20pt;
+}
