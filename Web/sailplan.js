@@ -16,15 +16,15 @@
 	// takes array of points in sequence (clockwise or anti clockwise)
 	function polygon(ptArray)
 	{
-	  var pts = new Array(ptArray.length); // private so polygon is immutable
-		for (i=0; i<pts.length; i++) pts [i]= ptArray[i];
+		var pts = new Array(ptArray.length); // private so polygon is immutable
+		for (var i=0; i<pts.length; i++) pts [i]= ptArray[i];
 		
 		// returns area of the polygon
 		this.area = function area() {
 		  //if (a>0) return a; // don't recalculate
-		  var a = 0 , p2;
+			var a = 0 , p1, p2;
 			
-  		for (p1=0; p1<pts.length; p1++)
+  			for (p1=0; p1<pts.length; p1++)
 			{
 				p2 = (p1+1) % pts.length;
 				a += (pts[p1].x * pts[p2].y) - (pts[p2].x * pts[p1].y);
@@ -38,7 +38,7 @@
 			//if (x > 0) return new point(x,y); // don't recalculate
 			var x=0, y=0, p2;
 			
-  		for (p1=0; p1<pts.length; p1++)
+  		for (var p1=0; p1<pts.length; p1++)
 			{
 				p2 = (p1+1) % pts.length;
 				x += (pts[p1].x + pts[p2].x) * ((pts[p1].x * pts[p2].y) - (pts[p2].x * pts[p1].y));
