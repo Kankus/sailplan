@@ -38,12 +38,12 @@
 			// viewmodel
 			function formView()
 			{
-				this.getTackx = function() { return document.getElementById("tackx").value; };
-				this.getTacky = function() { return document.getElementById("tacky").value; };
-				this.getClewx = function() { return document.getElementById("clewx").value; };
-				this.getClewy = function() { return document.getElementById("clewy").value; };
-				this.getHeadx = function() { return document.getElementById("headx").value; };
-				this.getHeady = function() { return document.getElementById("heady").value; };
+				this.getTackx = function() { return + document.getElementById("tackx").value; };
+				this.getTacky = function() { return + document.getElementById("tacky").value; };
+				this.getClewx = function() { return + document.getElementById("clewx").value; };
+				this.getClewy = function() { return + document.getElementById("clewy").value; };
+				this.getHeadx = function() { return + document.getElementById("headx").value; };
+				this.getHeady = function() { return + document.getElementById("heady").value; };
 				
 				this.setTackx = function(tackx) { document.getElementById("tackx").value = tackx; };
 				this.setTacky = function(tacky) { document.getElementById("tacky").value = tacky; };
@@ -65,7 +65,7 @@
 		</script>
 		
 		<h1><br/>To do: </h1>
-		<p>text based form - single sail<br/>Fix centroid bug</p>
+		<p>text based form - single sail<br/>fix negative area</p>
 		<p>utilise jquery</p>
 		<p>utilise angular</p>
 		<p>json service (integration test?)</p>

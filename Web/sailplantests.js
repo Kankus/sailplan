@@ -9,6 +9,10 @@
 		 assert.equal(testPt.y,4);
 		 assert.equal(testPt.r(),5);
 		 assert.equal(testPt.toString() ,"(3,4)");
+		 testPt = new point("3","4");
+     assert.equal(testPt.x,3);
+		 assert.equal(testPt.y,4);
+		 assert.equal(testPt.r(),5);
    });
 	 
 	 QUnit.test("triangle constructor", function( assert ) {
@@ -26,16 +30,18 @@
 	   var tri = new polygon([new point(4,2),new point(3,3),new point(2,7)]);
 		 assert.equal(tri.centroid().x,3);
 		 assert.equal(tri.centroid().y,4);
-		 assert.equal(tri.centroid().r(), 5);
 		 assert.equal(tri.area(),-1.5);
-		 assert.equal(tri.centroid().toString(),"(3,4)");
+		 assert.equal(tri.toString() ,"(4,2)(3,3)(2,7)");
+		 
+		 tri = new polygon([new point("4","2"),new point("3","3"),new point("2","7")]);
+		 assert.equal(tri.centroid().x,3);
+		 assert.equal(tri.centroid().y,4);
+		 assert.equal(tri.area(),-1.5);
 		 assert.equal(tri.toString() ,"(4,2)(3,3)(2,7)");
 		 
 		 tri = new polygon([new point(0,4),new point(0,0),new point(3,0)]);
 		 assert.equal(tri.centroid().x,1);
 		 assert.equal(tri.centroid().y,4/3);
-		// assert.equal(tri.centroid().r(), 5);
-		// assert.equal(tri.centroid().toString(),"(,4)");
 		 assert.equal(tri.toString() ,"(0,4)(0,0)(3,0)");
    });
 	 
