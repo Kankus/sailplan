@@ -9,7 +9,7 @@
   display: block; 
   float: left; 
 	text-align: right;
-  width: 6em; 
+  width: 8em; 
 }
 
 .form input {
@@ -19,4 +19,8 @@
 
 .form button {
 	font-size: 20pt;
+}
+
+canvas { 
+    border: 1px solid black; 
 }

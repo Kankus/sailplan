@@ -4,17 +4,18 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<title>Sailplan</title>
-		<script src="qunit.js"></script>
+		<script src="lib/qunit.js"></script>
+		<LINK href="lib/qunit.css" rel="stylesheet" type="text/css">
 		<script src="sailplan.js"></script>
+		<script src="indexview.js"></script>
 		<script src="sailplantests.js"></script>
-		<LINK href="qunit.css" rel="stylesheet" type="text/css">
 		<LINK href="sailplan.css" rel="stylesheet" type="text/css">
 	</head>
 
 	<body>
-		
+
 		<div id="qunit"></div>
-		
+
 		<div id="form" class="form">
 			<h1>Bermuda Mainsail</h1>
 			<p>
@@ -30,46 +31,28 @@
 				<input type="text" id="headx" size=4 /> ,
 				<input type="text" id="heady" size=4 /> )</p>
 			<p>
-				<button onclick="calculate()">Calculate</button></p>
+				<button id="btnCalculate">Calculate</button></p>
+			<p>
+				<label for="centx">Centroid (x,y) : (&nbsp;</label>
+				<input type="text" id="centx" size=4 /> ,
+				<input type="text" id="centy" size=4 /> )</p>
+			<p>
+				<label for="area">Area : &nbsp;&nbsp;</label>
+				<input type="text" id="area" size=4 /> </p>
 		</div>
-		
-		<script>
-			
-			// viewmodel
-			function formView()
-			{
-				this.getTackx = function() { return + document.getElementById("tackx").value; };
-				this.getTacky = function() { return + document.getElementById("tacky").value; };
-				this.getClewx = function() { return + document.getElementById("clewx").value; };
-				this.getClewy = function() { return + document.getElementById("clewy").value; };
-				this.getHeadx = function() { return + document.getElementById("headx").value; };
-				this.getHeady = function() { return + document.getElementById("heady").value; };
-				
-				this.setTackx = function(tackx) { document.getElementById("tackx").value = tackx; };
-				this.setTacky = function(tacky) { document.getElementById("tacky").value = tacky; };
-				this.setClewx = function(clewx) { document.getElementById("clewx").value = clewx; };
-				this.setClewy = function(clewy) { document.getElementById("clewy").value = clewy; };
-				this.setHeadx = function(headx) { document.getElementById("headx").value = headx; };
-				this.setHeady = function(heady) { document.getElementById("heady").value = heady; };
-			}
-			
-			// controller methods
-			function calculate()
-			{
-				var form = new formView();
-				var mainsail = new polygon([new point(form.getTackx(),form.getTacky()), new point(form.getClewx(),form.getClewy()), new point(form.getHeadx(),form.getHeady())]);
-				alert (mainsail.toString()+" "+mainsail.area()+" "+ mainsail.centroid().toString());
-			}
-			
-			
-		</script>
+
+		<canvas id="myCanvas" width="800" height="600"> 
+			You need a browser that supports HTML5! 
+		</canvas>
 		
 		<h1><br/>To do: </h1>
-		<p>text based form - single sail<br/>fix negative area</p>
+		<p>display main on canvas</p>
 		<p>utilise jquery</p>
 		<p>utilise angular</p>
 		<p>json service (integration test?)</p>
 		<p>GUI - single sail</p>
+
+
 		
 	</body>
 </html>
