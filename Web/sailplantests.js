@@ -58,6 +58,7 @@ QUnit.test("quad centroid and area", function(assert) {
 					 });
 
 function postload() {
+		
 		QUnit.test("mainsail form integration test 1", function(assert) {
 									 myForm.setClewx(4);
 									 myForm.setClewy(2);
@@ -65,7 +66,6 @@ function postload() {
 									 myForm.setHeady(3);
 									 myForm.setTackx(2);
 									 myForm.setTacky(7);
-									 alert("pause");
 									 myForm.calculate();
 									 myForm.draw();
 									 assert.equal(myForm.getCentx(), 3);
@@ -88,5 +88,6 @@ function postload() {
 							 });
 }
 
-window.addEventListener('load', postload, false);
-//document.addEventListener('ready', postload(), false);
+// seems to need some time to initiate the canvas even after the "load" event
+window.addEventListener('load', function(){setTimeout(postload, 500);}, false);
+

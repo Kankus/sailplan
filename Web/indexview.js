@@ -43,18 +43,13 @@ function loaded() {
 						myForm.setCentx(mainsail.centroid().x);
 						myForm.setCenty(mainsail.centroid().y);
 						myForm.setArea(mainsail.area());
-
-						//alert(mainsail.toString() + " " + mainsail.area() + " " + mainsail.centroid().toString());
 				};
 
 				var btn = document.getElementById('btnCalculate'); 
 				btn.addEventListener('click', this.calculate, false);
-
-				//alert("initiated");
 		};
 };
 
 window.addEventListener('load', loaded, false);
-//document.addEventListener('ready', loaded(), false);
 
 		
