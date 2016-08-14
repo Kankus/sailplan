@@ -59,7 +59,7 @@ QUnit.test("quad centroid and area", function(assert) {
 
 function postload() {
 		
-		QUnit.test("mainsail form integration test 1", function(assert) {
+		QUnit.test("mainsail calculate integration test", function(assert) {
 									 myForm.setClewx(4);
 									 myForm.setClewy(2);
 									 myForm.setHeadx(3);
@@ -67,24 +67,24 @@ function postload() {
 									 myForm.setTackx(2);
 									 myForm.setTacky(7);
 									 myForm.calculate();
-									 myForm.draw();
 									 assert.equal(myForm.getCentx(), 3);
 									 assert.equal(myForm.getCenty(), 4);
 									 assert.equal(myForm.getArea(), 1.5);
 							 });
 
-		QUnit.test("mainsail form integration test 2", function(assert) {
-									 myForm.setClewx(-3);
-									 myForm.setClewy(8);
-									 myForm.setHeadx(11);
-									 myForm.setHeady(-9);
-									 myForm.setTackx(12);
-									 myForm.setTacky(17);
+		QUnit.test("mainsail draw canvas test", function(assert) {
+									 myForm.setClewx(30);
+									 myForm.setClewy(30);
+									 myForm.setHeadx(300);
+									 myForm.setHeady(300);
+									 myForm.setTackx(300);
+									 myForm.setTacky(30);
 									 myForm.calculate();
-									 myForm.draw();
-									 assert.equal(myForm.getCentx(), 6 + 2 / 3);
-									 assert.equal(myForm.getCenty(), 5 + 1 / 3);
-									 assert.equal(myForm.getArea(), 190.5);
+									 myForm.draw(myForm.mainsail());
+									 expect(0);
+									 //assert.equal(myForm.getCentx(), 6 + 2 / 3);
+									 //assert.equal(myForm.getCenty(), 5 + 1 / 3);
+									 //assert.equal(myForm.getArea(), 190.5);
 							 });
 }
 

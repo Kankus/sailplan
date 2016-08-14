@@ -3,7 +3,7 @@ var myForm;
 function loaded() {
     myForm = new function indexView() {
 
-				var mainsail, canvas, gtx;
+				var canvas, gtx;
 				canvas = document.getElementById('myCanvas'); 
 				ctx = canvas.getContext('2d'); 
 
@@ -27,19 +27,24 @@ function loaded() {
 				this.setCenty = function(centy) { document.getElementById("centy").value = centy; };
 				this.setArea = function(area) { document.getElementById("area").value = area; };
 
-				this.draw = function draw() { 
-						//ctx.strokeRect(10, 50, 100, 200);
-	
+				this.draw = function draw(poly) { 
+						
 						ctx.beginPath(); 
-						ctx.moveTo(100, 250); 
-						ctx.lineTo(150, 350); 
-						ctx.lineTo(50, 350); 
+						ctx.moveTo(poly.pts[0].x, poly.pts[0].y); 
+						for (p1=1; p1<poly.pts.length; p1++) {
+								ctx.lineTo(poly.pts[p1].x, poly.pts[p1].y); 			
+						}
 						ctx.closePath();
 						ctx.stroke();
 				};
 
+				this.mainsail = function mainsail () {
+						return new polygon([new point(myForm.getTackx(), myForm.getTacky()), new point(myForm.getClewx(), myForm.getClewy()), new point(myForm.getHeadx(), myForm.getHeady())]);
+				};
+				
+	
 				this.calculate = function calculate() {
-						mainsail = new polygon([new point(myForm.getTackx(), myForm.getTacky()), new point(myForm.getClewx(), myForm.getClewy()), new point(myForm.getHeadx(), myForm.getHeady())]);
+						var mainsail = this.mainsail();
 						myForm.setCentx(mainsail.centroid().x);
 						myForm.setCenty(mainsail.centroid().y);
 						myForm.setArea(mainsail.area());
