@@ -3,3 +3,9 @@
 ################################################################################
 
 /Web/bin/Debug
+/Web/obj/Debug
+/Web/App.config
+/Web/Web.csproj
+/Web/Web.csproj.user
+/Sailplan.sln
+*.suo
